@@ -35,7 +35,7 @@ document.getElementById('searchBtn').addEventListener('click', () => {
         <h2>${country.name.common}</h2>  <!-- display name -->
         <div class="info-block"><strong>Region:</strong> ${country.region}</div>  <!-- display region -->
         <div class="info-block"><strong>Population:</strong> ${country.population.toLocaleString()}</div>  <!-- display population -->
-        <div class="info-block"><strong>Capital:</strong> ${capital}</div>  /<!-- display capital -->
+        <div class="info-block"><strong>Capital:</strong> ${capital}</div>  <!-- display capital -->
         <img src="${country.flags.png}" alt="Flag of ${country.name.common}">  <!-- display flag -->
       `;
 
