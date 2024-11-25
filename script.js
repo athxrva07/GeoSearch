@@ -10,27 +10,27 @@ document.getElementById('searchBtn').addEventListener('click', () => {
 
   // check if the search bar is empty
   if (query === '') {
-    // display a message asking for a country name
-    countryInfoDiv.innerHTML = '<p>Please enter a country name.</p>';
+    // display a message asking for a country's name
+    countryInfoDiv.innerHTML = '<p>Please enter a country.</p>';
     return;
   }
 
-  // fetch country data from the API 
+  // fetch country's data from the API 
   fetch(`https://restcountries.com/v3.1/name/${query}`)
     .then(response => {
       if (!response.ok) {
         throw new Error('Country not found');  // error if country is not found
       }
-      return response.json();  // parse the JSON data from the response
+      return response.json();
     })
     .then(data => {
-      // extract the country data from the response
+      // extract the country's data
       const country = data[0];
       
       // get the capital
       const capital = country.capital ? country.capital[0] : 'N/A';
 
-      // display the country information
+      // display the country's information
       countryInfoDiv.innerHTML = `
         <h2>${country.name.common}</h2>  // display country's name
         <div class="info-block"><strong>Region:</strong> ${country.region}</div>  // display country's region
@@ -39,7 +39,7 @@ document.getElementById('searchBtn').addEventListener('click', () => {
         <img src="${country.flags.png}" alt="Flag of ${country.name.common}">  // display country's flag
       `;
 
-      // show the export button after the country info is fetched
+      // show the export button after the country's info is fetched
       exportBtn.style.display = 'inline-block';
 
       // export to PDF when the Export button is clicked
@@ -58,10 +58,10 @@ document.getElementById('searchBtn').addEventListener('click', () => {
         doc.text(`Population: ${country.population.toLocaleString()}`, 10, 30);
         doc.text(`Capital: ${capital}`, 10, 40);
 
-        // add the flag image to the PDF
+        // add the flag to the PDF
         doc.addImage(country.flags.png, 'PNG', 10, 50, 50, 30);
 
-        // save the PDF file with the country name as the filename
+        // save the PDF file with country's name as the filename
         doc.save(`${country.name.common}.pdf`);
       });
     })
