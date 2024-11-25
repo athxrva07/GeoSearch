@@ -32,11 +32,11 @@ document.getElementById('searchBtn').addEventListener('click', () => {
 
       // display the country's information
       countryInfoDiv.innerHTML = `
-        <h2>${country.name.common}</h2>  // display country's name
-        <div class="info-block"><strong>Region:</strong> ${country.region}</div>  // display country's region
-        <div class="info-block"><strong>Population:</strong> ${country.population.toLocaleString()}</div>  // display country's population
-        <div class="info-block"><strong>Capital:</strong> ${capital}</div>  // display country's capital
-        <img src="${country.flags.png}" alt="Flag of ${country.name.common}">  // display country's flag
+        <h2>${country.name.common}</h2>  <!-- display name -->
+        <div class="info-block"><strong>Region:</strong> ${country.region}</div>  <!-- display region -->
+        <div class="info-block"><strong>Population:</strong> ${country.population.toLocaleString()}</div>  <!-- display population -->
+        <div class="info-block"><strong>Capital:</strong> ${capital}</div>  /<!-- display capital -->
+        <img src="${country.flags.png}" alt="Flag of ${country.name.common}">  <!-- display flag -->
       `;
 
       // show the export button after the country's info is fetched
